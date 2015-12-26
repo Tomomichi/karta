@@ -1,12 +1,12 @@
 $(document).ready(function(){
   var game_id = location.href.split("/").pop();
 
+  var i = 1;
 
   var pusher_key = $("#pusher").text();
   var pusher = new Pusher(pusher_key);
   var channel = pusher.subscribe(game_id);
    channel.bind('state_changed', function(data) {
-     $("#loading").show();
      $("#pre").hide();
      $("#main").hide();
      $("#finish").hide();
@@ -20,6 +20,8 @@ $(document).ready(function(){
        }).done(function(data){ //ajaxの通信に成功した場合
          var json = $.parseJSON(data);
          $("#poem").html(json.poem);  //取り札の文言をセット
+         $("#karta img").attr("src", "/assets/images/step"+i+".png");  //取り札の文言をセット
+         i++;
          //正解か不正解かをclassで付与
          if(json.result){
            $("#icon_result").removeClass("blue remove").addClass("orange trophy");
@@ -28,7 +30,6 @@ $(document).ready(function(){
            $("#icon_result").addClass("blue remove").removeClass("orange trophy");
            $("#text_result").text("はずれ！");
          }
-         (new Taketori()).set({"lang":"ja-jp","gap":"2em"}).element('karta').toVertical(true);
        }).fail(function(data){ //ajaxの通信に失敗した場合
          alert("エラーが発生しました。通信環境を確認してください。");
        });
@@ -39,12 +40,10 @@ $(document).ready(function(){
        $("#finish").show();
        break;
      }
-     $("#loading").hide();
    });
 
    //最初に非表示にする
    $("#main").hide();
-   $("#loading").hide();
    $("#finish").hide();
 
    $("#karta").click(function(){
