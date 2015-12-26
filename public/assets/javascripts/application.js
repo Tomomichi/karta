@@ -19,8 +19,7 @@ $(document).ready(function(){
          url: "/"+game_id+"/api"
        }).done(function(data){ //ajaxの通信に成功した場合
          var json = $.parseJSON(data);
-         $("#poem").html(json.poem);  //取り札の文言をセット
-         $("#karta img").attr("src", "/assets/images/step"+i+".png");  //取り札の文言をセット
+         $("#karta").attr("src", "/assets/images/torifuda/00"+i+".png");  //取り札の文言をセット
          i++;
          //正解か不正解かをclassで付与
          if(json.result){

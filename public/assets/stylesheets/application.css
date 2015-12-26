@@ -78,16 +78,3 @@ footer a, footer a:visited {
 #main {
   height: 100%;
 }
-#karta {
-  width: 100%;
-  max-width: 400px;
-  height: 100%;
-  max-height: 600px;
-  padding: 5%;
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 5px;
-  border: 10px solid #333;
-  font-size: 3.8rem;
-  cursor: pointer;
-}
