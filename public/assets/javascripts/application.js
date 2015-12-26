@@ -5,6 +5,11 @@ $(document).ready(function(){
   var pusher = new Pusher(pusher_key);
   var channel = pusher.subscribe(game_id);
    channel.bind('state_changed', function(data) {
+     $("#loading").show();
+     $("#pre").hide();
+     $("#main").hide();
+     $("#finish").hide();
+
      switch(data.status){
      //詠み上げ前画面。取り札はまだ結果表示しない
      case 'ready' :
@@ -25,34 +30,19 @@ $(document).ready(function(){
        }).fail(function(data){ //ajaxの通信に失敗した場合
          alert("エラーが発生しました。通信環境を確認してください。");
        });
-       $("#pre").hide();
        $("#main").show();
-       $("#finish").hide();
-
-       $("#karta").removeClass("active");
-       break;
-     //詠み上げ開始。取り札を結果表示できるようにする
-     case 'play' :
-     /*
-       $("#pre").hide();
-       $("#main").show();
-       $("#finish").hide();
-
-       $("#karta").addClass("active");
-     */
        break;
      //全ゲーム終了。終了画面を表示する
      case 'finish' :
-       $("#pre").hide();
-       $("#main").hide();
        $("#finish").show();
-       $("#karta").removeClass("active");
        break;
      }
+     $("#loading").hide();
    });
 
    //最初に非表示にする
    $("#main").hide();
+   $("#loading").hide();
    $("#finish").hide();
 
    $("#karta").click(function(){
