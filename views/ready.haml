@@ -8,15 +8,15 @@
     %img.ui.centered.image.small(src="/assets/images/logo.png")
 .ui.inverted.segment.attached.center.aligned
   %h4.ui.inverted.header
-    第#{@play_count}首目 / 5首
+    第#{@play_count}首目 / 10首
 %section
   .ui.segment.basic.center.aligned
     .ui.centered.card
       .image
-        %img(src="/assets/components/hyakunin-issyu/images/#{format('%03d',@card_id)}.jpg" alt="#{@poem.poem.kanji}" class="ui image medium")
+        %img(src="/assets/components/hyakunin-issyu/images/#{format('%03d',@card_id)}.jpg" alt="#{@poem}" class="ui image medium")
       .ui.blurring.segment.content.left.aligned
         .ui.inverted.dimmer
-        .header= @poem.poet.name.ja
+        .header= @poem.poet
         .description
           =@poem.poem.first.kanji
           %br

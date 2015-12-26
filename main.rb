@@ -37,7 +37,7 @@ class MyApp < Sinatra::Base
     Dir::mkdir("./tmp/#{game_id}")
 
     #プレイ枚数分の正解を決めて、ディレクトリつくっておく
-    play_num = 5
+    play_num = 10
     selected_cards = (1..100).to_a.sample(play_num)
     selected_cards.each.with_index(1) do |card_id, i|
       dir_name = "#{format("%03d",i)}_#{format("%03d",card_id)}"
@@ -61,7 +61,7 @@ class MyApp < Sinatra::Base
     dir_name = dir.split("/").last
     @card_id = dir_name.split("_").last.to_i
 
-    @play_count = (5-dirs.count)+1
+    @play_count = (10-dirs.count)+1
 
     @poem = HyakuninIssyu.find(@card_id.to_i)
 
