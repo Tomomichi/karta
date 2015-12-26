@@ -1,6 +1,8 @@
 $(document).ready(function(){
   var game_id = location.href.split("/").pop();
 
+  (new Taketori()).set({"lang":"ja-jp","gap":"2em"}).element('karta').toVertical(true);
+
   var pusher_key = $("#pusher").text();
   var pusher = new Pusher(pusher_key);
   var channel = pusher.subscribe(game_id);
