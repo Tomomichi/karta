@@ -1,0 +1,8 @@
+{
+  "name": "spkarta",
+  "version": "0.0.1",
+  "dependencies": {
+    "semantic": "semantic-ui#~2.1.7",
+    "hyakunin-issyu": "~0.1.1"
+  }
+}

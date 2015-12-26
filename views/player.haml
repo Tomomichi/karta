@@ -1,0 +1,61 @@
+!!! 5
+%html(lang="ja")
+%head
+  %meta(charset="UTF-8")
+  %title スマホde百人一首
+  %meta(name="keywords" content="スマホde百人一首,NOT SO BAD,Tomomichi Onishi")
+  %meta(name="description" content="スマホde百人一首は、みんなのスマホを取り札にして遊べる、 お正月にぴったりの百人一首サービスです。")
+  %meta(name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1")
+
+  %meta(property="og:title" content="スマホde百人一首")
+  %meta(property="og:type" content="website")
+  %meta(property="og:url" content="http://karta.notsobad.jp")
+  %meta(property="og:image" content="http://karta.notsobad.jp/og.png")
+  %meta(property="og:description" content="スマホde百人一首は、みんなのスマホを取り札にして遊べる、 お正月にぴったりの百人一首サービスです。")
+  %meta(property="og:site_name" content="スマホde百人一首")
+
+  %meta(name="twitter:card" content="summary_large_image")
+  %meta(name="twitter:title" content="スマホde百人一首")
+  %meta(name="twitter:description" content="スマホde百人一首は、みんなのスマホを取り札にして遊べる、 お正月にぴったりの百人一首サービスです。")
+  %meta(name="twitter:image:src" content="http://karta.notsobad.jp/og.png")
+
+  %link(rel="stylesheet" href="/assets/components/semantic/dist/semantic.min.css")
+  %link(rel="stylesheet" href="/assets/stylesheets/application.css")
+  %script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+  %script(type="text/javascript" src="/assets/components/semantic/dist/semantic.min.js")
+  %script(src="//js.pusher.com/3.0/pusher.min.js")
+  %script(type="text/javascript" src="/assets/javascripts/application.js")
+%body
+  #pusher= @pusher_key
+
+  #pre
+    .ui.page.dimmer.active
+      .content
+        .center
+          %h3.ui.inverted.icon.header
+            %i.notched.circle.loading.icon
+            他のメンバーを待っています
+            .sub.header ゲーム開始まで、このまましばらくお待ちください
+
+  #main.ui.basic.segment.attached.padded.seigaiha
+    #karta
+      %p#poem
+    .ui.page.dimmer
+      .content
+        .center
+          %h1.ui.inverted.icon.header
+            %i#icon_result(class="circular icon inverted")
+            %span#text_result
+            .ui.divider.hidden
+          %div
+            %button.ui.inverted.big.button(onclick="$('#main .dimmer').dimmer('hide');")
+              %i.remove.icon
+              閉じる
+
+  #finish
+    .ui.page.dimmer.active
+      .content
+        .center
+          %h3.ui.inverted.icon.header
+            %i(class="circular icon inverted teal checkmark")
+            ゲーム終了

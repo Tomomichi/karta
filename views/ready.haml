@@ -1,0 +1,42 @@
+%link(rel="stylesheet" href="/assets/stylesheets/audioplayer.css")
+%script(type="text/javascript" src="/assets/javascripts/audioplayer.js")
+%script(type="text/javascript" src="/assets/javascripts/server.js")
+
+
+.ui.segment.ichimatsu.subheader.attached
+  %h1
+    %img.ui.centered.image.small(src="/assets/images/logo.png")
+.ui.inverted.segment.attached.center.aligned
+  %h4.ui.inverted.header
+    第#{@play_count}首目 / 5首
+%section
+  .ui.segment.basic.center.aligned
+    .ui.centered.card
+      .image
+        %img(src="/assets/components/hyakunin-issyu/images/#{format('%03d',@card_id)}.jpg" alt="#{@poem.poem.kanji}" class="ui image medium")
+      .ui.blurring.segment.content.left.aligned
+        .ui.inverted.dimmer
+        .header= @poem.poet.name.ja
+        .description
+          =@poem.poem.first.kanji
+          %br
+          =@poem.poem.last.kanji
+    .ui.text.container
+      %audio(src="/assets/components/hyakunin-issyu/audios/#{format('%03d',@card_id)}.mp3" preload="auto" controls)
+        %p お使いのブラウザが音声再生に対応していないようです。現在のURLをコピーして、他のブラウザでアクセスしてみてください。。
+
+  .ui.basic.segment.center.aligned.attached.padded.seigaiha
+    .ui.divider.hidden
+    %div
+      %a(href="/#{@game_id}/finish")
+        %button(class="ui huge right labeled icon red button")
+          %i(class="right arrow icon")
+          次の句へ
+    %br
+    %br
+    %div
+      %a(href="/#{@game_id}/result")
+        %button(class="ui small basic black button")
+          %i(class="remove icon")
+          ゲームを終了する
+    .ui.divider.hidden
