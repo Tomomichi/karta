@@ -78,3 +78,27 @@ footer a, footer a:visited {
 #main {
   height: 100%;
 }
+
+#karta {
+  cursor: pointer;
+}
+
+
+#btn-fb {
+  display: inline-block;
+  position: relative;
+}
+#btn-fb .itookashi{
+  background: #4c69ba;
+  background: -webkit-linear-gradient(#4c69ba, #3b55a0);
+  background: linear-gradient(#4c69ba, #3b55a0);
+}
+
+.itookashi {
+  position: absolute;
+  font-size: 0.5rem;
+  left: 20px;
+  top: 1px;
+  cursor: pointer;
+  pointer-events: none;
+}

@@ -24,12 +24,26 @@
   %script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
   %script(type="text/javascript" src="/assets/components/semantic/dist/semantic.min.js")
 %body
+  #fb-root
+  %script
+    (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id; js.async=true;
+    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.5&appId=139414576217599";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
   #container
     = yield
 
   %footer.ui.footer.inverted.basic.segment.center.aligned
     .ui.hidden.divider
     %div
+      /
+        #btn-fb
+          .fb-like(data-href="http://karta.notsobad.jp" data-layout="button" data-action="like" data-show-faces="false" data-share="false")
+          .itookashi いとをかし
       %a(href="https://www.facebook.com/sharer/sharer.php?u=#{ENV['HTTP_HOST']}" target="_blank")
         %button.ui.facebook.small.button.compact
           %i.facebook.icon

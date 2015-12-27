@@ -1,8 +1,6 @@
 $(document).ready(function(){
   var game_id = location.href.split("/").pop();
 
-  var i = 1;
-
   var pusher_key = $("#pusher").text();
   var pusher = new Pusher(pusher_key);
   var channel = pusher.subscribe(game_id);
@@ -19,8 +17,7 @@ $(document).ready(function(){
          url: "/"+game_id+"/api"
        }).done(function(data){ //ajaxの通信に成功した場合
          var json = $.parseJSON(data);
-         $("#karta").attr("src", "/assets/images/torifuda/00"+i+".png");  //取り札の文言をセット
-         i++;
+         $("#karta").attr("src", "/assets/components/hyakunin-issyu/images/torifuda/"+json.card_id+".png");  //取り札の文言をセット
          //正解か不正解かをclassで付与
          if(json.result){
            $("#icon_result").removeClass("blue remove").addClass("orange trophy");
