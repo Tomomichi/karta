@@ -54,7 +54,7 @@ header .container {
   margin-top: 0px !important;
   color: #999 !important;
 }
-footer a, footer a:visited {
+.footer a, .footer a:visited {
   color: #fff;
 }
 
