@@ -83,22 +83,17 @@ footer a, footer a:visited {
   cursor: pointer;
 }
 
-
-#btn-fb {
-  display: inline-block;
+#fakebox {
   position: relative;
+  max-width: 400px;
+  margin: 0 auto;
 }
-#btn-fb .itookashi{
-  background: #4c69ba;
-  background: -webkit-linear-gradient(#4c69ba, #3b55a0);
-  background: linear-gradient(#4c69ba, #3b55a0);
+#fakebox > img {
+  width: 100%;
 }
-
-.itookashi {
+#fakebox a > img {
   position: absolute;
-  font-size: 0.5rem;
-  left: 20px;
-  top: 1px;
-  cursor: pointer;
-  pointer-events: none;
+  width: 85px;
+  left: 16%;
+  top: 13%;
 }

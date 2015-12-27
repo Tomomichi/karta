@@ -39,23 +39,24 @@
 
   %footer.ui.footer.inverted.basic.segment.center.aligned
     .ui.hidden.divider
-    %div
-      /
-        #btn-fb
-          .fb-like(data-href="http://karta.notsobad.jp" data-layout="button" data-action="like" data-show-faces="false" data-share="false")
-          .itookashi いとをかし
+    %div#fakebox
+      %img(src="/assets/images/fakebox.png")
       %a(href="https://www.facebook.com/sharer/sharer.php?u=#{ENV['HTTP_HOST']}" target="_blank")
-        %button.ui.facebook.small.button.compact
+        %img(src="/assets/images/fakelike.png")
+    .ui.hidden.divider
+    %div
+      %a(href="https://www.facebook.com/sharer/sharer.php?u=#{ENV['HTTP_HOST']}" target="_blank")
+        %button.ui.icon.facebook.button.circular
           %i.facebook.icon
-          Facebook
+          /Facebook
       %a(href="https://twitter.com/share?url=#{ENV['HTTP_HOST']}&text=%e3%82%b9%e3%83%9e%e3%83%9bde%e7%99%be%e4%ba%ba%e4%b8%80%e9%a6%96%20%7c%20%e3%81%bf%e3%82%93%e3%81%aa%e3%81%ae%e3%82%b9%e3%83%9e%e3%83%9b%e3%82%92%e5%8f%96%e3%82%8a%e6%9c%ad%e3%81%ab%e3%81%97%e3%81%a6%e9%81%8a%e3%81%b9%e3%82%8b%e3%80%81%20%e3%81%8a%e6%ad%a3%e6%9c%88%e3%81%ab%e3%81%b4%e3%81%a3%e3%81%9f%e3%82%8a%e3%81%ae%e7%99%be%e4%ba%ba%e4%b8%80%e9%a6%96%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e3%80%82" target="_blank")
-        %button.ui.twitter.small.button.compact
+        %button.ui.twitter.icon.button.circular
           %i.twitter.icon
-          Twitter
+          /Twitter
       %a(href="http://line.me/R/msg/text/?%e3%82%b9%e3%83%9e%e3%83%9bde%e7%99%be%e4%ba%ba%e4%b8%80%e9%a6%96%20http%3a%2f%2fkarta%2enotsobad%2ejp" target="_blank")
-        %button.ui.green.small.button.compact
+        %button.ui.green.icon.button.circular
           %i.comment.icon
-          LINE
+          /LINE
     .ui.hidden.divider
     %div
       %small

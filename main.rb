@@ -131,8 +131,10 @@ class MyApp < Sinatra::Base
       game_id: @game_id,
       card_id: @card_id,
       result: @card_id==correct_card_id,
-      poem: HyakuninIssyu.find(@card_id.to_i).poem.last.kana
     }
+
+    #一番乗りはランダムで最長1秒待つ
+    sleep(SecureRandom.random_number(10)/10.to_f) if @card_id==correct_card_id
     data.to_json
   end
 
