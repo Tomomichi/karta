@@ -38,12 +38,7 @@
     = yield
 
   %footer.ui.footer.inverted.basic.segment.center.aligned
-    .ui.hidden.divider
-    %div#fakebox
-      %img(src="/assets/images/fakebox.png")
-      %a(href="https://www.facebook.com/sharer/sharer.php?u=#{ENV['HTTP_HOST']}" target="_blank")
-        %img(src="/assets/images/fakelike.png")
-    .ui.hidden.divider
+    %br
     %div
       %a(href="https://www.facebook.com/sharer/sharer.php?u=#{ENV['HTTP_HOST']}" target="_blank")
         %button.ui.icon.facebook.button.circular

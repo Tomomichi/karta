@@ -50,12 +50,9 @@ header .container {
   max-width: 600px;
 }
 
-.grid, .items {
-  //padding: 5% 0 !important;
-}
-footer {
+.footer {
   margin-top: 0px !important;
-  color: #ddd !important;
+  color: #999 !important;
 }
 footer a, footer a:visited {
   color: #fff;
