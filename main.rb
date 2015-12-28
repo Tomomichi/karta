@@ -109,6 +109,10 @@ class MyApp < Sinatra::Base
 
 
   get '/:game_id/api' do
+    #ランダムで最長１秒Sleep(アクセス早い端末が毎回正解になるのを防ぐ)
+    n = SecureRandom.random_number(10)/10.to_f
+    sleep(n)
+
     #一番番号が小さいディレクトリにアクセス
     dir = Dir.glob("./tmp/#{@game_id}/**").sort.first
     dir_name = dir.split("/").last
@@ -133,8 +137,9 @@ class MyApp < Sinatra::Base
       result: @card_id==correct_card_id,
     }
 
-    #一番乗りはランダムで最長1秒待つ
-    sleep(SecureRandom.random_number(10)/10.to_f) if @card_id==correct_card_id
+    #一番乗りはランダムで最長1秒待つ（最初に開くのが正解ってばれないように）
+    n = SecureRandom.random_number(10)/10.to_f
+    sleep(n) if @card_id==correct_card_id
     data.to_json
   end
 
