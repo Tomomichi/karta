@@ -109,8 +109,8 @@ class MyApp < Sinatra::Base
 
 
   get '/:game_id/api' do
-    #ランダムで最長１秒Sleep(アクセス早い端末が毎回正解になるのを防ぐ)
-    n = SecureRandom.random_number(10)/10.to_f
+    #ランダムで最長3秒Sleep(アクセス早い端末が毎回正解になるのを防ぐ)
+    n = SecureRandom.random_number(30)/10.to_f
     sleep(n)
 
     #一番番号が小さいディレクトリにアクセス
