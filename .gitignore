@@ -2,3 +2,4 @@
 .bundle
 nohup.out
 public/assets/components
+public/qr/*

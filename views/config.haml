@@ -16,11 +16,16 @@
       .ui.vertical.divider
         OR
       .center.aligned.column
-        %h4 直接URLを教える
-        .ui.icon.small.info.message
-          .content
-            .header
-              =@game_url
+        %h4 QRコードからアクセス
+        %img(src="/qr/#{@game_id}.png")
+  %br
+  .ui.main.text.container
+    .center.aligned.column
+      %h4 直接アクセスする場合のURLはこちら
+      .ui.icon.small.info.message
+        .content
+          .header
+            =@game_url
 
   .ui.divider.hidden
 

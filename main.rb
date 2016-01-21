@@ -6,6 +6,9 @@ require 'json'
 require 'securerandom'
 require 'HyakuninIssyu'
 require 'pusher'
+require 'rqrcode'
+require 'rqrcode_png'
+require 'chunky_png'
 
 
 class MyApp < Sinatra::Base
@@ -51,6 +54,13 @@ class MyApp < Sinatra::Base
   #game設定画面
   get '/:game_id/config' do
     @game_url = "#{ENV['HTTP_HOST']}/#{@game_id}"
+
+    # QRコード画像作成
+    qr = RQRCode::QRCode.new( @game_url, :size => 3, :level => :h )
+    png = qr.to_img
+    png.resize(200, 200).save("./public/qr/#{@game_id}.png")
+
+
     haml :config
   end
 
