@@ -3,10 +3,10 @@
     %img.ui.centered.image.small(src="/assets/images/logo.png")
 .ui.inverted.segment.attached.center.aligned
   %h4.ui.inverted.header
-    お友達を招待してください
+    専用URLをメンバーに共有してください
 %section
   .ui.main.text.container(style="position:relative;")
-    .ui.two.column.stackable.padded.grid
+    .ui.three.column.stackable.padded.grid
       .center.aligned.column
         %h4 LINEで送る
         %a(href="http://line.me/R/msg/text/?%E3%82%B9%E3%83%9E%E3%83%9Bde%E7%99%BE%E4%BA%BA%E4%B8%80%E9%A6%96%E3%81%AF%E3%81%98%E3%81%BE%E3%82%8B%E3%82%88%EF%BC%81#{CGI.escape(@game_url)}")
@@ -18,14 +18,14 @@
       .center.aligned.column
         %h4 QRコードからアクセス
         %img(src="#{@qr_path}")
-  %br
-  .ui.main.text.container
-    .center.aligned.column
-      %h4 直接アクセスする場合のURLはこちら
-      .ui.icon.small.info.message
-        .content
-          .header
-            =@game_url
+      .ui.vertical.divider
+        OR
+      .center.aligned.column
+        %h4 直接URLを伝える
+        .ui.icon.small.info.message
+          .content
+            .header
+              =@game_url
 
   .ui.divider.hidden
 
