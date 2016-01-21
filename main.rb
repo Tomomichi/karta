@@ -1,4 +1,4 @@
-# coding: UTF-8
+# encoding: utf-8
 
 require 'sinatra'
 require "sinatra/reloader"
@@ -10,6 +10,7 @@ require 'rqrcode'
 require 'rqrcode_png'
 require 'chunky_png'
 require 'base64'
+
 
 
 class MyApp < Sinatra::Base
@@ -58,12 +59,7 @@ class MyApp < Sinatra::Base
 
     # QRコード画像作成
     qr = RQRCode::QRCode.new( @game_url, :size => 3, :level => :h )
-    png = qr.to_img
-    img = png.resize(200, 200).save("./tmp/#{@game_id}.png")
-
-    base64 = Base64.strict_encode64(open(img).read)
-    mime = "image/png"
-    @qr_path = "data:"+ mime + ";base64," + base64
+    @qr_path = qr.to_img.resize(200,200).to_data_url
 
     haml :config
   end
