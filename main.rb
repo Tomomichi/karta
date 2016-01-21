@@ -58,7 +58,7 @@ class MyApp < Sinatra::Base
     @game_url = "#{ENV['HTTP_HOST']}/#{@game_id}"
 
     # QRコード画像作成
-    qr = RQRCode::QRCode.new( @game_url, :size => 3, :level => :h )
+    qr = RQRCode::QRCode.new( @game_url, :size => 5, :level => :h )
     @qr_path = qr.to_img.resize(200,200).to_data_url
 
     haml :config
