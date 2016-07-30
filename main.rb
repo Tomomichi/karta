@@ -155,6 +155,14 @@ class MyApp < Sinatra::Base
 
 
   ##############################################
+  # Let's Encrypt確認用
+  ##############################################
+  get "/.well-known/acme-challenge/:id" do
+    ENV["LETSENCRYPT_RESPONSE"] if params[:id] == ENV["LETSENCRYPT_REQUEST"]
+  end
+
+
+  ##############################################
   # Utilities
   ##############################################
   #指定したディレクトリを中身が空じゃなくても全削除
