@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>スマホde百人一首</title>
+  <meta name="keywords" content="スマホde百人一首,NOT SO BAD,Tomomichi Onishi">
+  <meta name="description" content="スマホde百人一首は、みんなのスマホを取り札にして遊べる、 お正月にぴったりの百人一首サービスです。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+  <meta property="og:title" content="スマホde百人一首">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://karta.notsobad.jp">
+  <meta property="og:image" content="http://karta.notsobad.jp/og.png">
+  <meta property="og:description" content="スマホde百人一首は、みんなのスマホを取り札にして遊べる、 お正月にぴったりの百人一首サービスです。">
+  <meta property="og:site_name" content="スマホde百人一首">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="スマホde百人一首">
+  <meta name="twitter:description" content="スマホde百人一首は、みんなのスマホを取り札にして遊べる、 お正月にぴったりの百人一首サービスです。">
+  <meta name="twitter:image:src" content="http://karta.notsobad.jp/og.png">
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.3/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/application.css">
+</head>
+
+<body>
+  <content></content>
+
+  <script src="/top.tag" type="riot/tag"></script>
+  <script src="/config.tag" type="riot/tag"></script>
+  <script src="/play.tag" type="riot/tag"></script>
+  <script src="/result.tag" type="riot/tag"></script>
+  <script src="/player.tag" type="riot/tag"></script>
+  <script src="/footer.tag" type="riot/tag"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.6.4/riot+compiler.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lrsjng.jquery-qrcode/0.14.0/jquery-qrcode.min.js"></script>
+
+  <script>
+    //Firebase init
+    var config = {
+      apiKey: "AIzaSyC54pv27BXsZ5kb3zLLCrGXHWEZiteoa3k",
+      authDomain: "notsobad-1332.firebaseapp.com",
+      databaseURL: "https://notsobad-1332.firebaseio.com",
+      storageBucket: "notsobad-1332.appspot.com",
+      messagingSenderId: "99804693575"
+    }
+    firebase.initializeApp(config)
+
+    riot.route.base('/')
+    riot.route('/', function() {
+      riot.mount('content', 'top')
+    })
+    riot.route('/*/config', function(room_id) {
+      riot.mount('content', 'config', {room_id: room_id})
+    })
+    riot.route('/*/play', function(room_id) {
+      riot.mount('content', 'play', {room_id: room_id})
+    })
+    riot.route('/*/result', function(room_id) {
+      riot.mount('content', 'result', {room_id: room_id})
+    })
+    riot.route('/*', function(room_id) {
+      riot.mount('content', 'player', {room_id: room_id})
+    })
+    riot.route.start(true)
+
+
+    //shuffle numbers
+    function shuffleAry(ary) {
+      var i = ary.length
+      while(i){
+        var j = Math.floor(Math.random()*i)
+        var t = ary[--i]
+        ary[i] = ary[j]
+        ary[j] = t
+      }
+      return ary
+    }
+
+    function randomItem(array, num) {
+      var a = array;
+      var t = [];
+      var r = [];
+      var l = a.length;
+      var n = num < l ? num : l;
+      while (n-- > 0) {
+        var i = Math.random() * l | 0;
+        r[n] = t[i] || a[i];
+        --l;
+        t[i] = t[l] || a[l];
+      }
+      return r;
+    }
+  </script>
+</body>
+</html>
