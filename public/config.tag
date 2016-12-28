@@ -26,7 +26,7 @@
             OR
           </div>
           <div class='center aligned'>
-            <h4>QRコードを見せない</h4>
+            <h4>QRコードを見せる</h4>
             <div id="qrcode"></div>
           </div>
           <div class='ui horizontal divider'>
